@@ -45,15 +45,14 @@ class Mentor:
     def rate_hw(self, student, course, grade):
         """Оценить домашнюю работу студента.
 
-                Аргументы:
-                    student (Student): Объект студента, которому выставляется оценка.
-                    course (str): Название курса, по которому оценивается работа.
-                    grade (int): Оценка за домашнее задание.
+        Аргументы:
+            student (Student): Объект студента, которому выставляется оценка.
+            course (str): Название курса, по которому оценивается работа.
+            grade (int): Оценка за домашнее задание.
 
-                Возвращает:
-                    None | str: Возвращает 'Ошибка', если переданы некорректные данные
-                                (например, студент не проходит этот курс или наставник не прикреплён к курсу).
-                """
+        Возвращает:
+            None | str: Возвращает 'Ошибка', если переданы некорректные данные.
+        """
         if isinstance(student, Student) and course in self.courses_attached and course in student.courses_in_progress:
             if course in student.grades:
                 student.grades[course] += [grade]
